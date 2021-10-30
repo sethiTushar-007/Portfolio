@@ -1,0 +1,281 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Tushar Sethi</title>
+	<meta name="description" content="Hi, I am Tushar Sethi ...">
+	<meta name="author" content="Tushar Sethi">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">  
+   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+   <link rel="stylesheet" href="{% static 'css/vendor.css' %}">     
+
+   <!-- script
+   ================================================== -->   
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/pace.min.js' %}"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="{% static 'portfolio-favicon.png' %}">
+
+</head>
+
+<body id="top">
+
+	<!-- intro section
+   ================================================== -->
+   <section id="intro">   
+
+   	<div class="intro-overlay"></div>	
+
+   	<div class="intro-content">
+   		<div class="row">
+
+   			<div class="col-twelve">
+
+	   			<h5>Hello World.</h5>
+	   			<h1>I'm {{name}}.</h1>
+
+	   			<p class="intro-position">
+	   				{% for job_title in job_titles %}
+                       <span>{{job_title.title}}</span>
+                    {% endfor %}
+	   			</p>
+
+	   			<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
+
+	   		</div>  
+   			
+   		</div>   		 		
+   	</div> <!-- /intro-content --> 
+        {% if social_icons %}
+            <ul class="intro-social">
+                {% for icon in social_icons %}
+                    <li><a href={{icon.url}}><i class="fa fa-{{icon.fontawesome_icon}}"></i></a></li>
+                {% endfor %}
+                <!--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+                <!--<li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+            </ul> <!-- /intro-social --> 
+        {% endif %}
+   </section> <!-- /intro -->
+
+
+   <!-- about section
+   ================================================== -->
+   <section id="about">  
+
+   	<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>About</h5>
+   			<h1>Let me introduce myself.</h1>
+
+   			<div class="intro-info">
+
+   				<img src="{{avatar}}" alt="Tushar Sethi">
+
+   				<p class="lead">{{description}}</p>
+   			</div>   			
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row about-content">
+
+   		<div class="col-six tab-full">
+
+   			<h3>Profile</h3>
+   			<!--<p>Lorem ipsum Qui veniam ut consequat ex ullamco nulla in non ut esse in magna sint minim officia consectetur nisi commodo ea magna pariatur nisi cillum.</p>-->
+
+   			<ul class="info-list">
+   				<li>
+   					<strong>Fullname:</strong>
+   					<span>{{name}}</span>
+   				</li>
+   				<li>
+   					<strong>Birth Date:</strong>
+   					<span>{{birth_date}}</span>
+   				</li>
+   				<li>
+   					<strong>Job:</strong>
+   					<span>Freelancer, Full Stack Developer</span>
+   				</li>
+   				<li>
+   					<strong>Email:</strong>
+   					<span>{{email}}</span>
+   				</li>
+
+   			</ul> <!-- /info-list -->
+
+   		</div>
+           {% if skills %}
+   		        <div class="col-six tab-full">
+
+   			        <h3>Skills</h3>
+   			        <!--<p>Lorem ipsum Qui veniam ut consequat ex ullamco nulla in non ut esse in magna sint minim officia consectetur nisi commodo ea magna pariatur nisi cillum.</p>-->
+
+                        <ul class="skill-bars">
+                            {% for skill in skills %}
+                                <li>
+                                    <div class="progress percent{{skill.percent}}"><span>{{skill.percent}}</span></div>
+                                    <strong>{{skill.title}}</strong>
+                                </li>
+                            {% endfor %}
+                        </ul> <!-- /skill-bars -->		
+
+   		        </div>
+           {% endif %}
+   	</div>
+
+   	<div class="row button-section">
+   		<div class="col-twelve">
+   			<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
+   			<a href="#" title="Download CV" class="button button-primary">Download CV</a>
+   		</div>   		
+   	</div>
+
+   </section> <!-- /process-->    
+
+   <!-- contact
+   ================================================== -->
+	<section id="contact">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Contact</h5>
+   			<h1>I'd Love To Hear From You.</h1>
+
+   			<!--<p class="lead">Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.</p>-->
+
+   		</div> 
+   	</div> <!-- /section-intro -->
+
+   	<div class="row contact-form">
+
+   		<div class="col-twelve">
+
+            <!-- form -->
+            <form name="contactForm" id="contactForm" method="post" action="">
+               {% csrf_token %}
+      			<fieldset>
+                  <div class="form-field">
+ 						<input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
+                  </div>
+                  <div class="form-field">
+	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
+	               </div>
+                  <div class="form-field">
+	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" required="" value="" autocomplete="off">
+	               </div>                       
+                  <div class="form-field">
+	                 	<textarea name="contactMessage" id="contactMessage" placeholder="Message" rows="10" cols="50" required=""></textarea>
+	               </div>                      
+                 <div class="form-field">
+                     <button id="submit-button" class="submitform">Submit</button>
+                     <div id="submit-loader">
+                        <div class="text-loader">Sending...</div>                             
+       				      <div class="s-loader">
+								  	<div class="bounce1"></div>
+								  	<div class="bounce2"></div>
+								  	<div class="bounce3"></div>
+					      </div>
+					 </div>
+                  </div>
+
+      			</fieldset>
+      		</form> <!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning">
+                Something went wrong. Please try again.
+            </div>            
+            <!-- contact-success -->
+      		<div id="message-success">
+               <i class="fa fa-check"></i>Your message has been sent, thank you!<br>
+      		</div>
+
+         </div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /contact-form -->
+
+   	<div class="row contact-info">
+
+   		<div class="col-six tab-full collapse">
+
+   			<div class="icon">
+   				<i class="icon-mail"></i>
+   			</div>
+
+   			<h5>Email Me At</h5>
+
+   			<p>{{email}}</p>
+
+   		</div>
+
+   		<div class="col-six tab-full">
+
+   			<div class="icon">
+   				<i class="icon-phone"></i>
+   			</div>
+
+   			<h5>Call Me At</h5>
+
+   			<p>Phone: (+91) {{phone}}</p>
+
+   		</div>
+   		
+   	</div> <!-- /contact-info -->
+		
+	</section> <!-- /contact -->
+
+
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+       {% if social_icons %}
+     	    <div class="row">
+     		    <div class="col-eight tab-full pull-right social">
+                    <ul class="footer-social">
+                        {% for icon in social_icons %}
+                            <li><a href={{icon.url}}><i class="fa fa-{{icon.fontawesome_icon}}"></i></a></li>
+                        {% endfor %}
+                    </ul> 
+	            </div>
+            </div>
+       {% endif %}
+      	<div class="col-eight tab-full">
+	      	<div id="go-top">
+		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+		      </div>
+
+      	</div> <!-- /row -->     	
+   </footer>  
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+   <script src="{% static 'js/plugins.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
