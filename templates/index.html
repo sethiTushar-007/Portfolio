@@ -143,7 +143,7 @@
    	<div class="row button-section">
    		<div class="col-twelve">
    			<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
-   			<a href="#" title="Download CV" class="button button-primary">Download CV</a>
+   			<a href="{{resume}}" target="_blank" title="Download Resume" class="button button-primary">Resume</a>
    		</div>   		
    	</div>
 
@@ -154,91 +154,91 @@
 	<section id="contact">
 
 		<div class="row section-intro">
-   		<div class="col-twelve">
+			<div class="col-twelve">
 
-   			<h5>Contact</h5>
-   			<h1>I'd Love To Hear From You.</h1>
+				<h5>Contact</h5>
+				<h1>I'd Love To Hear From You.</h1>
 
-   			<!--<p class="lead">Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.</p>-->
+				<!--<p class="lead">Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.</p>-->
 
-   		</div> 
-   	</div> <!-- /section-intro -->
+			</div> 
+		</div> <!-- /section-intro -->
 
-   	<div class="row contact-form">
+		<div class="row contact-form">
 
-   		<div class="col-twelve">
+			<div class="col-twelve">
 
-            <!-- form -->
-            <form name="contactForm" id="contactForm" method="post" action="">
-               {% csrf_token %}
-      			<fieldset>
-                  <div class="form-field">
- 						<input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
-                  </div>
-                  <div class="form-field">
-	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
-	               </div>
-                  <div class="form-field">
-	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" required="" value="" autocomplete="off">
-	               </div>                       
-                  <div class="form-field">
-	                 	<textarea name="contactMessage" id="contactMessage" placeholder="Message" rows="10" cols="50" required=""></textarea>
-	               </div>                      
-                 <div class="form-field">
-                     <button id="submit-button" class="submitform">Submit</button>
-                     <div id="submit-loader">
-                        <div class="text-loader">Sending...</div>                             
-       				      <div class="s-loader">
-								  	<div class="bounce1"></div>
-								  	<div class="bounce2"></div>
-								  	<div class="bounce3"></div>
-					      </div>
-					 </div>
-                  </div>
+				<!-- form -->
+				<form name="contactForm" id="contactForm" method="post" action="">
+				{% csrf_token %}
+					<fieldset>
+					<div class="form-field">
+							<input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
+					</div>
+					<div class="form-field">
+						<input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
+					</div>
+					<div class="form-field">
+							<input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" required="" value="" autocomplete="off">
+					</div>                       
+					<div class="form-field">
+							<textarea name="contactMessage" id="contactMessage" placeholder="Message" rows="10" cols="50" required=""></textarea>
+					</div>                      
+					<div class="form-field">
+						<button id="submit-button" class="submitform">Submit</button>
+						<div id="submit-loader">
+							<div class="text-loader">Sending...</div>                             
+							<div class="s-loader">
+										<div class="bounce1"></div>
+										<div class="bounce2"></div>
+										<div class="bounce3"></div>
+							</div>
+						</div>
+					</div>
 
-      			</fieldset>
-      		</form> <!-- Form End -->
+					</fieldset>
+				</form> <!-- Form End -->
 
-            <!-- contact-warning -->
-            <div id="message-warning">
-                Something went wrong. Please try again.
-            </div>            
-            <!-- contact-success -->
-      		<div id="message-success">
-               <i class="fa fa-check"></i>Your message has been sent, thank you!<br>
-      		</div>
+				<!-- contact-warning -->
+				<div id="message-warning">
+					Something went wrong. Please try again.
+				</div>            
+				<!-- contact-success -->
+				<div id="message-success">
+				<i class="fa fa-check"></i>Your message has been sent, thank you!<br>
+				</div>
 
-         </div> <!-- /col-twelve -->
-   		
-   	</div> <!-- /contact-form -->
+			</div> <!-- /col-twelve -->
+			
+		</div> <!-- /contact-form -->
 
-   	<div class="row contact-info">
+		<div class="row contact-info">
 
-   		<div class="col-six tab-full collapse">
+			<div class="col-six tab-full collapse">
 
-   			<div class="icon">
-   				<i class="icon-mail"></i>
-   			</div>
+				<a class="icon" href="mailto:{{email}}">
+					<i class="icon-mail"></i>
+				</a>
 
-   			<h5>Email Me At</h5>
+				<h5>Email Me At</h5>
 
-   			<p>{{email}}</p>
+				<p>{{email}}</p>
 
-   		</div>
+			</div>
 
-   		<div class="col-six tab-full">
+			<div class="col-six tab-full">
 
-   			<div class="icon">
-   				<i class="icon-phone"></i>
-   			</div>
+				<a class="icon" href="tel:+91{{phone}}">
+					<i class="icon-phone"></i>
+				</a>
 
-   			<h5>Call Me At</h5>
+				<h5>Call Me At</h5>
 
-   			<p>Phone: (+91) {{phone}}</p>
+				<p>Phone: (+91) {{phone}}</p>
 
-   		</div>
-   		
-   	</div> <!-- /contact-info -->
+			</div>
+			
+		</div> <!-- /contact-info -->
 		
 	</section> <!-- /contact -->
 
