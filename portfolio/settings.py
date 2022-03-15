@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--&0m=pqkx=o035ty*!b+b3dqgm^%=6#s#^=xf40i6h^9+0b9)=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tusharsethi.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Email Purpose
 
@@ -50,7 +50,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
